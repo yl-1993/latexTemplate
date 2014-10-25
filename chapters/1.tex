@@ -1,0 +1,28 @@
+\chapter{范例}
+在基于线性回报函数的假设下，线性回报函数基于回报函数的线性组合：
+\begin{equation}
+R(s) = \sum\limits_{i=1}^d w_i\phi_i(s)
+\label{equ:chap1:rf}
+\end{equation}
+在式\ref{equ:chap1:rf}中，$\phi_1,...\phi_d$是确定的状态特征函数，用来描述每一个状态的特征，d为特征的个数；$w_1,...,w_d$是各个状态特征函数的权值向量，也称为回报权重，这是学徒学习所试图还原的参数，通过$w=[w_1,...,w_d]$就可以还原出回报函数，进而可以就可以通过加强学习的算法来求解最优策略，从而模拟出专家演示路径。
+
+本文所讨论的2种算法都是建立在IRL框架上的，这一框架的特点在于它假设专家是基于一个能产生最优或者近似最优策略的回报函数来进行演示的。
+
+Ng和Russell 提出逆向增强学习后\cite{Ng:irl}，Abbeel和Ng将增强学习引入学徒学习\cite{Abbeel:al}，它通过最大化专家演示策略和其他策略的差别，还原出一个能得出和专家演示相似策略的回报函数。策略$\pi$对应的值函数可以表示成：
+\begin{equation}
+V_w(\pi) = w^T\dot E[\sum\limits_{t=0}^\infty \gamma^t \varphi(s_t)|\pi]
+\label{equ:chap2:value}
+\end{equation}
+式\ref{equ:chap2:value}中，$\gamma$为折扣因子，$\mu = E[\sum\limits_{t=0}^\infty \gamma^t \varphi(s_t)|\pi$为特征期望(feature expectation)，根据之前提到的对专家路径所做的最优假设，$\mu$就作为一个代表专家路径的”最优值“，也可以被用作衡量策略之间相似程度的标准。
+
+逆向增强学习通过使执行专家演示策略和次优策略时获得的回报值的差最大来求得各特征之间的权值w，因此，该学习问题可以归结为以下的最优化问题：
+\begin{equation}
+\max_{\tau,w:||w||_2 \leq 1} \tau, s.t. V_w(\pi_E) \geq V_w(\pi_i) + \tau, i = 1,...,t-1
+\label{equ:chap3:max}
+\end{equation}
+式\ref{equ:chap3:max}中：$\pi_E$为专家演示策略，$\pi_i$为第i次迭代产生的策略。
+当前，用于解决该问题比较成熟的算法有：Abbel提出的边际最大算法(Max-margin)，投影法(Projection)\cite{Abbeel:al}，Ziebart提出的基于逆向增强学习的最大熵算法（Maximum Entropy）\cite{Ziebart:maxentropy}，还有一些效果一般但速度很快的算法，比如在线学徒学习算法（Online Apprentice Learning）。
+
+为了将该算法应用到实际情况中，Grimes和Rao等人探讨了在不确定环境下的学徒学习系统设计\cite{David:imitation}。目前，基于回报函数学习的单专家学徒学习已经被应用到如小型直升机在空中自主完成一系列复杂动作\cite{Abbeel:app}，并且取得了良好的效果。
+
+相比于单专家的学徒学习，多专家的学徒学习具有更明显的现实意义，是一个融合了聚类和学徒学习的问题，这里聚类的意思是说假定归属于同一类的专家演示都是由同一个专家生成的，那么问题就变成了：既要能够推测出每个路径所属的类又要能够为每个类生成回报函数。

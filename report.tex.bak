@@ -1,0 +1,121 @@
+% !TEX encoding = System
+%%
+%% This file `main.tex', which is written by Yang Bo,  is the thesis template of China Univ. of Geosciences.
+%% It works with the configuration files, `CUGthesis.cls' and `CUGthesis.cfg'.
+%%
+%% Author: Yang Bo, Institute of Geophysics & Geomatics, China Univ. of Geoscience, Wuhan, China.
+%% Version: 0.1
+%% Date: 2011/04/23
+%% Copyright 2011-2015
+%% Special thanks to Dr. Linyun Wu and Dr. Yinnian Wu
+%%
+%% Please send any comments, suggestions and questions to `yangbo.cug@163.com'.
+%%
+%% This file was generated from file(s) of the CUGthesis package project.
+
+\documentclass[pdftex,twoside,openany,doctor,nofundinfo]{yltemplate}
+
+% 设置图形文件的搜索路径
+\graphicspath{{chapters/}{figures/}}
+
+%设置链接
+% \hypersetup{pdfstartview=FitH,bookmarksopen=true,colorlinks=true}
+% 取消链接的颜色（黑白打印时）
+\hypersetup{pdfstartview=FitH,bookmarksopen=true,citecolor=black,pdfborder=000,colorlinks=false}
+
+% 小节标题靠左对齐
+%\CTEXsetup[format+={\flushleft}]{section}
+
+\begin{document}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 封面部分
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  % 中文封面内容
+  %\school{清华大学}
+  \title{标题}
+  \author{作者}
+  %\authoremail{yanglei11@mails.tsinghua.edu.cn}
+  %\major{}
+  \advisor{授课老师}
+  %\publishdate{2014年9月20日}
+  %\advisoremail{cli@tsinghua.edu.cn}
+  %\institute{}
+  %\submitdatechs{二○一二年五月}
+
+%============================ 用于测试的自定义文字块 ================================%
+\newcommand{\aaa}{这是科技文稿排版测试这是科技文稿排版测试}
+\newcommand{\bbb}{\aaa \aaa \aaa
+
+ \aaa \aaa \aaa }
+\newcommand{\ccc}{\bbb \bbb \bbb \bbb \bbb
+
+ \bbb \bbb \bbb \bbb \bbb }
+\newcommand{\abc}{abcdefg1234567890}
+\newcommand{\upabc}{ABCDEFG}
+%============================ 用于测试的自定义文字块 ================================%
+
+
+\maketitle
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 前言部分
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frontmatter
+
+  % 个人简历
+  %\include{chapters/resume}
+  % 摘要
+  %\include{chapters/abstract}
+  % 目录
+  \include{chapters/contents}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 正文部分
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mainmatter
+  %章节
+  %\input{chapters/biaoti}
+  %\input{chapters/structure}
+  \input{chapters/1}
+  \input{chapters/2}
+  \input{chapters/3}
+  \input{chapters/4}
+  \input{chapters/5}
+  \input{chapters/conclusion}
+  %\include{chapters/equation}
+  %\include{chapters/fonts}
+
+
+  % 致谢
+  %\include{chapters/acknowledgement}
+  % 附录
+  %\appendix
+
+  %\include{chapters/chap-req}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 附件部分
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\backmatter
+
+  % 参考文献
+  % 使用 BibTeX
+  \addcontentsline{toc}{chapter}{参考文献}
+  % \bibliographystyle{chinesebst}
+  \bibliographystyle{unsrt}
+  %\bibliographystyle{GBT7714-2005NLang}
+  \bibliographystyle{acm}
+  \addtolength{\itemsep}{-0.5 em} % 缩小参考文献间的垂直间距
+  \bibliography{bib/tex}
+  \nocite{*}
+  % 不使用 BibTeX
+  % \include{chapter/bib}
+
+\end{document}
+

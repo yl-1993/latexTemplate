@@ -1,0 +1,21 @@
+@echo off
+pdflatex report.tex
+makeindex -o report.ind report.idx
+bibtex report
+pdflatex report.tex
+gbk2uni.exe report.out
+pdflatex report.tex
+del *.aux
+del *.toc
+del *.lof
+del *.lot
+del *.ilg
+del *.idx
+del *.ind
+del *.out
+del *.log
+del *.exa
+del *.blg
+del *.bbl
+del chapters\*.aux
+@echo on

@@ -1,0 +1,74 @@
+% !TEX encoding = System
+%%
+%% Author: Yang Lei, School of Software, Tsinghua University
+%% Version: 1.0
+%% Date: 2011/09/20
+%%
+%% Contact 'jerryyanglei@gmail.com' if you have any questions or suggestions.
+%%
+
+\documentclass[pdftex,twoside,openany,doctor,nofundinfo]{yltemplate}
+
+% 图形文件的搜索路径
+\graphicspath{{chapters/}{figures/}}
+
+% 小节标题靠左对齐
+%\CTEXsetup[format+={\flushleft}]{section}
+
+\begin{document}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 封面部分
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  %\school{清华大学}
+  \title{标题}
+  \author{作者}
+  \authoremail{jerryyanglei@gmail.com}
+  \advisor{授课老师}
+  %\advisoremail{}
+  \submitdate{2014年10月25日}
+
+
+\maketitle
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 前言部分
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frontmatter
+
+  % 摘要
+  \include{chapters/abstract}
+  % 目录
+  \include{chapters/contents}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 正文部分
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mainmatter
+  %章节
+  \input{chapters/biaoti}
+  \include{chapters/equation}
+  \input{chapters/1}
+  % 致谢
+  \include{chapters/acknowledgement}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 附录部分
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\backmatter
+
+  % 参考文献
+  \addcontentsline{toc}{chapter}{参考文献}
+  \bibliographystyle{unsrt} % 改变不同的参考文献风格
+  %\bibliographystyle{GBT7714-2005NLang}
+  \bibliographystyle{acm}
+  \addtolength{\itemsep}{-0.5 em}
+  \bibliography{bib/tex}
+  \nocite{*}
+
+\end{document}
+
