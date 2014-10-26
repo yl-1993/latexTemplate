@@ -121,6 +121,7 @@ headsep=10pt]
 \newcommand\defenddate[1]{\def\TEMPLATE@value@defenddate{#1}}
 \newcommand\institute[1]{\def\TEMPLATE@value@institute{#1}}
 \newcommand\chairman[1]{\def\TEMPLATE@value@chairman{#1}}
+\newcommand\coursename[1]{\def\TEMPLATE@value@coursename{#1}}
 %%自定义参考文献上标引用
 \newcommand{\ucite}[1]{\textsuperscript{\textsuperscript{\cite{#1}}}}  % 方法2
 %%自定义frontmatter格式
@@ -145,14 +146,14 @@ headsep=10pt]
 \fancypagestyle{plain}{%
   \fancyhf{}%
   \fancyhead[LO,RE]{\songti\zihao{-5} \TEMPLATE@value@submitdate}
-  \fancyhead[CO]{\songti\zihao{-5} \TEMPLATE@value@school:\TEMPLATE@label@coursename}
+  \fancyhead[CO]{\songti\zihao{-5} \TEMPLATE@value@school:\TEMPLATE@value@coursename}
   \fancyhead[CE]{\songti\zihao{-5} \TEMPLATE@value@author :~~ \TEMPLATE@value@titlemark}
   \fancyhead[LE,RO]{\songti\zihao{-5} ~\thepage~}
 }
 \pagestyle{fancy}
   \fancyhf{}
   \fancyhead[LO,RE]{\songti\zihao{-5} \TEMPLATE@value@submitdate}
-  \fancyhead[CO]{\songti\zihao{-5} \TEMPLATE@value@school:\TEMPLATE@label@coursename}
+  \fancyhead[CO]{\songti\zihao{-5} \TEMPLATE@value@school:\TEMPLATE@value@coursename}
   \fancyhead[CE]{\songti\zihao{-5} \TEMPLATE@value@author :~~ \TEMPLATE@value@titlemark}
   \fancyhead[LE,RO]{\songti\zihao{-5} ~\thepage~}
 %%正文页眉双线
